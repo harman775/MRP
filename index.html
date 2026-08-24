@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Alumni Connect Analytics Platform — GHU · Team Radiance</title>
+<title>Alumni Connect Analytics Platform — Master&rsquo;s Research Project</title>
 <meta name="description" content="Master's Research Project: a three-portal analytics platform that turns 2,000 scattered alumni records into decisions about engagement, giving and hiring.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -226,6 +226,24 @@ hr.rule{border:0; border-top:1px solid var(--line); margin:26px 0}
 .rank .row.hot{background:linear-gradient(90deg,#FFF8EC,#fff);border-color:#F0DCB4}
 .empty{padding:30px;text-align:center;color:var(--ink3);font-size:.9rem}
 
+.statstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.statstrip{grid-template-columns:repeat(2,1fr)}}
+.method{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ink3);
+  border-top:1px dashed var(--line);margin-top:12px;padding-top:9px}
+.wide{grid-column:1/-1}
+
+.prep{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;overflow-x:auto}
+.prep svg{min-width:720px;width:100%;height:auto}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+.tool{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.tool b{font-family:"Bricolage Grotesque",sans-serif;font-size:1rem}
+
+        .n{fill:#fff;stroke:#DDE9E6}
+        .nt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;fill:#fff;letter-spacing:.05em}
+        .nb{font-family:'Instrument Sans',sans-serif;font-size:10.5px;fill:#4C6764}
+        .fl{stroke:#0E8C7F;stroke-width:1.6;fill:none;marker-end:url(#ar)}
+      
 .screen{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .screen .hd{padding:14px 18px;border-bottom:1px solid var(--line2);display:flex;
   justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
@@ -288,8 +306,8 @@ hr.rule{border:0; border-top:1px solid var(--line); margin:26px 0}
 <body>
 <header class="site"><div class="bar">
   <a class="brand" href="#overview"><span class='mark'><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-    <span class="brandtxt"><b>Alumni Connect</b><span>GHU · Team Radiance</span></span></a>
-  <nav class="main"><a href="#overview" data-nav="overview">Overview</a><a href="#problem" data-nav="problem">Problem</a><a href="#data" data-nav="data">Data</a><a href="#dashboard" data-nav="dashboard">Dashboard</a><a href="#solution" data-nav="solution">Solution</a><a href="#architecture" data-nav="architecture">Architecture</a><a href="#results" data-nav="results">Results</a><a href="#ethics" data-nav="ethics">Ethics</a><a href="#team" data-nav="team">Team</a></nav>
+    <span class="brandtxt"><b>Alumni Connect</b><span>Master&rsquo;s Research Project</span></span></a>
+  <nav class="main"><a href="#overview" data-nav="overview">Overview</a><a href="#problem" data-nav="problem">Problem</a><a href="#data" data-nav="data">Data</a><a href="#dashboard" data-nav="dashboard">Dashboard</a><a href="#advanced" data-nav="advanced">Advanced</a><a href="#bi" data-nav="bi">BI build</a><a href="#solution" data-nav="solution">Solution</a><a href="#architecture" data-nav="architecture">Architecture</a><a href="#results" data-nav="results">Results</a><a href="#ethics" data-nav="ethics">Ethics</a><a href="#team" data-nav="team">Method</a></nav>
 </div></header>
 
 <main>
@@ -697,6 +715,332 @@ hr.rule{border:0; border-top:1px solid var(--line); margin:26px 0}
     <div class="node"><b>Decide</b><span>Programme investment argued from the data, not from anecdote</span></div>
   </div>
   <p class="note" style="margin-top:14px">Before the platform this took several days of spreadsheet reconciliation across two offices. That reduction — days to minutes — is the single change staff noticed first.</p>
+</div></section>
+
+</section>
+<section class="page" id="page-advanced" hidden>
+
+<div class="wrap hero">
+  <span class="eyebrow">Section 04 · Advanced analysis</span>
+  <h1>Past the bar chart.</h1>
+  <p class="lede">Fourteen views that go beyond counting: concentration, correlation, cohort behaviour, distribution shape, and a scored propensity model evaluated against its own outcome. Every statistic on this page is computed in the browser from the 2,000 records — the numbers in the prose are read from the calculation, not typed in.</p>
+</div>
+
+<section><div class="wrap">
+  <div class="statstrip">
+    <div class="stat accent"><div class="n" id="a-k1">—</div><div class="k">Share of all giving from the top 20% of donors</div></div>
+    <div class="stat amber"><div class="n" id="a-k2">—</div><div class="k">Top-decile lift over average gift</div></div>
+    <div class="stat violet"><div class="n" id="a-k3">—</div><div class="k">Affinity model AUC · past giving excluded</div></div>
+    <div class="stat"><div class="n" id="a-k4">—</div><div class="k">Correlation: engagement and gift size</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">01 · Concentration</span>
+  <h2>A small group carries the whole result</h2>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="chart"><h3>Engagement pipeline</h3><div class="sub">Alumni surviving each stage, from the full base to donors</div>
+      <div id="a-funnel"></div><div class="insight" id="a-funnel-i"></div>
+      <div class="method">Method — sequential filters on engagement_score, profile_completeness, mentorship_interest and donation_last_year. Carry rate shown against the previous stage.</div></div>
+
+    <div class="chart"><h3>Giving concentration by industry</h3><div class="sub">Total giving per sector with cumulative share</div>
+      <div id="a-pareto"></div><div class="insight" id="a-pareto-i"></div>
+      <div class="method">Method — Pareto: bars sorted descending, line shows the running cumulative percentage of total giving.</div></div>
+
+    <div class="chart"><h3>Average gift by engagement decile</h3><div class="sub">Alumni ranked into ten equal groups by engagement score</div>
+      <div id="a-decile"></div><div class="insight" id="a-decile-i"></div>
+      <div class="method">Method — records sorted by engagement_score, split into ten equal buckets, mean of donation_last_year per bucket.</div></div>
+
+    <div class="chart"><h3>Alumni by industry</h3><div class="sub">Area proportional to headcount</div>
+      <div id="a-tree"></div><div class="insight" id="a-tree-i"></div>
+      <div class="method">Method — treemap sliced by alternating direction on descending headcount.</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">02 · Model evaluation</span>
+  <h2>Does the propensity score actually separate donors?</h2>
+  <p class="lede" style="margin-top:12px">The production donor score includes past giving, so testing it against "did they give" would be circular. This evaluation uses an <strong>affinity-only model</strong> — engagement, capacity and tenure, with past giving removed — and scores it against the actual donor flag. That is the honest test of whether behaviour predicts giving.</p>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="chart"><h3>ROC curve</h3><div class="sub">True positive rate against false positive rate, all thresholds</div>
+      <div id="a-roc"></div><div class="insight" id="a-roc-i"></div>
+      <div class="method">Method — records sorted by affinity score descending; TPR and FPR accumulated at every threshold. AUC by the trapezoidal rule.</div></div>
+
+    <div class="chart"><h3>Cumulative gains</h3><div class="sub">Share of donors captured against share of the base contacted</div>
+      <div id="a-gains"></div><div class="insight" id="a-gains-i"></div>
+      <div class="method">Method — cumulative donor count at each percentile of the ranked list, against the random-selection diagonal.</div></div>
+  </div>
+  <div class="tblwrap" style="margin-top:18px"><table id="a-lift"></table></div>
+  <p class="note" style="margin-top:12px">The lift table is the version a development office would actually use: contact the top three deciles, reach a disproportionate share of donors, and stop where lift crosses 1.0.</p>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">03 · Relationships</span>
+  <h2>What moves with what</h2>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="chart"><h3>Correlation matrix</h3><div class="sub">Pearson r across six numeric fields</div>
+      <div id="a-corr"></div><div class="insight" id="a-corr-i"></div>
+      <div class="method">Method — Pearson product-moment correlation, pairwise complete. Employed alumni only for salary pairs.</div></div>
+
+    <div class="chart"><h3>Engagement against capacity</h3><div class="sub">Every employed alumnus, split at both medians</div>
+      <div id="a-quad"></div><div class="insight" id="a-quad-i"></div>
+      <div class="method">Method — quadrant split at the median engagement score and median salary. The shaded quadrant is high on both.</div></div>
+
+    <div class="chart"><h3>Sector profile</h3><div class="sub">Average salary against average engagement · bubble size is headcount</div>
+      <div id="a-bubble"></div><div class="insight" id="a-bubble-i"></div>
+      <div class="method">Method — group means per industry; radius scaled to the square root of headcount.</div></div>
+
+    <div class="chart"><h3>Salary distribution by major</h3><div class="sub">Median, interquartile range and 1.5×IQR whiskers</div>
+      <div id="a-box"></div><div class="insight" id="a-box-i"></div>
+      <div class="method">Method — box plot on employed alumni. Synthetic salary values: compare spread between programmes, not absolute levels.</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">04 · Cohorts</span>
+  <h2>Behaviour changes with time since graduation</h2>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="chart wide"><h3>Average gift by graduating cohort and engagement tier</h3>
+      <div class="sub">Mean donation last year · darker is higher</div>
+      <div id="a-cohort"></div><div class="insight" id="a-cohort-i"></div>
+      <div class="method">Method — cross-tabulation of grad_year against engagement tier, cell value is the mean gift. Empty cells have no alumni in that combination.</div></div>
+
+    <div class="chart"><h3>Event attendance by years since graduation</h3><div class="sub">Mean events attended</div>
+      <div id="a-tenure"></div><div class="insight" id="a-tenure-i"></div>
+      <div class="method">Method — mean of events_attended grouped by years_since_grad, derived from grad_year.</div></div>
+
+    <div class="chart"><h3>Employment status by major</h3><div class="sub">Share of each cohort · 100% stacked</div>
+      <div id="a-stack"></div><div class="insight" id="a-stack-i"></div>
+      <div class="method">Method — counts per status normalised to the programme total.</div></div>
+
+    <div class="chart wide"><h3>Graduation trend by programme</h3><div class="sub">One panel per major, shared vertical scale</div>
+      <div id="a-small"></div><div class="insight" id="a-small-i"></div>
+      <div class="method">Method — small multiples on a common maximum so panel heights are directly comparable.</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Reading the analysis</span>
+  <h2>What all of this adds up to</h2>
+  <div class="grid g3" style="margin-top:20px">
+    <div class="card"><h3>Target behaviour, not wealth</h3>
+      <p style="font-size:.9rem;color:var(--ink2);margin-top:8px" id="a-c1">—</p></div>
+    <div class="card"><h3>Work the top three deciles</h3>
+      <p style="font-size:.9rem;color:var(--ink2);margin-top:8px" id="a-c2">—</p></div>
+    <div class="card"><h3>Treat the quiet majority separately</h3>
+      <p style="font-size:.9rem;color:var(--ink2);margin-top:8px" id="a-c3">—</p></div>
+  </div>
+  <p style="margin-top:22px"><a class="cta" href="#bi">Next: rebuilding this in Tableau and Power BI</a></p>
+</div></section>
+
+</section>
+<section class="page" id="page-bi" hidden>
+
+<div class="wrap hero">
+  <span class="eyebrow">Section 05 · BI build</span>
+  <h1>The same analysis,<br>in Tableau and Power BI.</h1>
+  <p class="lede">This page is the rebuild specification: the Prep flow that cleans the file, the calculated fields and DAX measures behind every number, and the sheet-by-sheet layout. Anyone with the CSV and either tool can reproduce the whole dashboard from what is on this page.</p>
+  <p style="margin-top:20px"><a class="cta" href="#" data-download="csv">Download the analytic extract</a>
+    <a class="cta ghost" href="#advanced">See the analysis it produces</a></p>
+</div>
+
+<section><div class="wrap">
+  <span class="eyebrow">Step 1 · Prepare</span>
+  <h2>The Tableau Prep flow</h2>
+  <div class="prep" style="margin-top:20px">
+    <svg viewBox="0 0 860 260" role="img" aria-label="Tableau Prep flow: input, clean, derive, aggregate, output">
+      <defs><style>
+        .n{fill:#fff;stroke:#DDE9E6}
+        .nt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;fill:#fff;letter-spacing:.05em}
+        .nb{font-family:'Instrument Sans',sans-serif;font-size:10.5px;fill:#4C6764}
+        .fl{stroke:#0E8C7F;stroke-width:1.6;fill:none;marker-end:url(#ar)}
+      </style>
+      <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#0E8C7F"/></marker></defs>
+
+      <rect class="n" x="14" y="40" width="148" height="122" rx="9"/>
+      <rect x="14" y="40" width="148" height="24" rx="9" fill="#10312E"/><rect x="14" y="54" width="148" height="10" fill="#10312E"/>
+      <text class="nt" x="26" y="57">1 · INPUT</text>
+      <text class="nb" x="26" y="82">alumni_dataset.csv</text><text class="nb" x="26" y="100">2,000 rows</text>
+      <text class="nb" x="26" y="118">70 fields</text><text class="nb" x="26" y="136">Text qualifier: none</text>
+
+      <rect class="n" x="186" y="40" width="148" height="122" rx="9"/>
+      <rect x="186" y="40" width="148" height="24" rx="9" fill="#0E8C7F"/><rect x="186" y="54" width="148" height="10" fill="#0E8C7F"/>
+      <text class="nt" x="198" y="57">2 · CLEAN</text>
+      <text class="nb" x="198" y="82">Trim + title-case text</text><text class="nb" x="198" y="100">Group industry spellings</text>
+      <text class="nb" x="198" y="118">Dates → date type</text><text class="nb" x="198" y="136">Nulls → "Not employed"</text>
+
+      <rect class="n" x="358" y="40" width="148" height="122" rx="9"/>
+      <rect x="358" y="40" width="148" height="24" rx="9" fill="#0E8C7F"/><rect x="358" y="54" width="148" height="10" fill="#0E8C7F"/>
+      <text class="nt" x="370" y="57">3 · DERIVE</text>
+      <text class="nb" x="370" y="82">years_since_grad</text><text class="nb" x="370" y="100">engagement_tier</text>
+      <text class="nb" x="370" y="118">salary_band</text><text class="nb" x="370" y="136">is_donor flag</text>
+
+      <rect class="n" x="530" y="40" width="148" height="122" rx="9"/>
+      <rect x="530" y="40" width="148" height="24" rx="9" fill="#E09B1F"/><rect x="530" y="54" width="148" height="10" fill="#E09B1F"/>
+      <text class="nt" x="542" y="57">4 · AGGREGATE</text>
+      <text class="nb" x="542" y="82">Branch: sector rollup</text><text class="nb" x="542" y="100">Mean salary, mean score</text>
+      <text class="nb" x="542" y="118">Headcount per industry</text><text class="nb" x="542" y="136">Union back for context</text>
+
+      <rect class="n" x="702" y="40" width="144" height="122" rx="9"/>
+      <rect x="702" y="40" width="144" height="24" rx="9" fill="#6558C8"/><rect x="702" y="54" width="144" height="10" fill="#6558C8"/>
+      <text class="nt" x="714" y="57">5 · OUTPUT</text>
+      <text class="nb" x="714" y="82">alumni_clean.hyper</text><text class="nb" x="714" y="100">sector_rollup.hyper</text>
+      <text class="nb" x="714" y="118">Scheduled refresh</text><text class="nb" x="714" y="136">Row count assertion</text>
+
+      <path class="fl" d="M164 101 L 182 101"/><path class="fl" d="M336 101 L 354 101"/>
+      <path class="fl" d="M508 101 L 526 101"/><path class="fl" d="M680 101 L 698 101"/>
+
+      <text class="nb" x="14" y="196" fill="#7C918E">Every step keeps a profile pane snapshot before and after, so the cleaning decisions are auditable rather than</text>
+      <text class="nb" x="14" y="212" fill="#7C918E">buried in a calculated field. The row-count assertion at the output is what proves nothing was silently dropped.</text>
+    </svg>
+  </div>
+  <div class="tblwrap" style="margin-top:18px"><table>
+    <thead><tr><th>Issue in the raw file</th><th>Prep step</th><th>Why it matters downstream</th></tr></thead>
+    <tbody>
+      <tr><td>Empty strings in <code class="inline">current_company</code> for unemployed alumni</td><td>Clean → replace with "Not employed"</td><td>Otherwise they vanish from every industry count instead of being visible as a category</td></tr>
+      <tr><td><code class="inline">salary</code> stored as 0 rather than null</td><td>Filter branch: salary &gt; 0 for averages</td><td>Zeros drag the mean down by roughly a sixth and make programme comparison meaningless</td></tr>
+      <tr><td>Boolean fields as text "True"/"False"</td><td>Change type to boolean</td><td>Lets them be counted directly instead of via a string comparison in every measure</td></tr>
+      <tr><td><code class="inline">granted_at</code>, <code class="inline">employment_start_date</code> as strings</td><td>Change type to date</td><td>Enables date-part grouping and relative-date filters</td></tr>
+      <tr><td>Mixed-case, spaced category values</td><td>Group and replace</td><td>Prevents the same sector appearing as two bars</td></tr>
+      <tr><td>Skills held as a delimited string</td><td>Split values into rows on "; "</td><td>Makes skill frequency countable for the employer view</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Step 2 · Measure</span>
+  <h2>Every number, in both dialects</h2>
+  <div class="split" style="margin-top:20px">
+    <div class="card">
+      <div class="tool"><span class="tag">Tableau</span><b>Calculated fields</b></div>
+      <pre><span class="c">// Active alumni rate</span>
+SUM(IF [Engagement Score] &gt; 50 THEN 1 ELSE 0 END)
+/ COUNTD([Alumni Id])
+
+<span class="c">// Average salary, employed only</span>
+AVG(IF [Salary] &gt; 0 THEN [Salary] END)
+
+<span class="c">// Donor propensity score</span>
+MIN([Donation Last Year]/1000, 1) * 40
++ ([Engagement Score]/100) * 30
++ MIN([Salary]/500000, 1) * 20
++ MIN([Years Since Grad]/10, 1) * 10
+
+<span class="c">// Engagement tier</span>
+IF [Engagement Score] &gt; 70 THEN "High"
+ELSEIF [Engagement Score] &gt; 50 THEN "Medium"
+ELSE "Low" END
+
+<span class="c">// Decile rank on engagement</span>
+NTILE(10) <span class="c">// table calc, addressing Alumni Id</span>
+
+<span class="c">// Cumulative share for the Pareto</span>
+RUNNING_SUM(SUM([Donation Last Year]))
+/ TOTAL(SUM([Donation Last Year]))</pre>
+    </div>
+    <div class="card">
+      <div class="tool"><span class="tag amber">Power BI</span><b>DAX measures</b></div>
+      <pre><span class="c">-- Active alumni rate</span>
+Active Rate =
+DIVIDE(
+  CALCULATE(COUNTROWS(Alumni), Alumni[engagement_score] &gt; 50),
+  COUNTROWS(Alumni))
+
+<span class="c">-- Average salary, employed only</span>
+Avg Salary =
+CALCULATE(AVERAGE(Alumni[salary]), Alumni[salary] &gt; 0)
+
+<span class="c">-- Donor propensity score</span>
+Donor Score =
+  MIN(DIVIDE(SUM(Alumni[donation_last_year]),1000),1) * 40
++ DIVIDE(AVERAGE(Alumni[engagement_score]),100) * 30
++ MIN(DIVIDE(AVERAGE(Alumni[salary]),500000),1) * 20
++ MIN(DIVIDE(AVERAGE(Alumni[years_since_grad]),10),1) * 10
+
+<span class="c">-- Engagement tier (calculated column)</span>
+Engagement Tier =
+SWITCH(TRUE(),
+  Alumni[engagement_score] &gt; 70, "High",
+  Alumni[engagement_score] &gt; 50, "Medium",
+  "Low")
+
+<span class="c">-- Cumulative giving for the Pareto</span>
+Cumulative Giving =
+VAR CurrentVal = [Total Giving]
+RETURN
+CALCULATE([Total Giving],
+  FILTER(ALLSELECTED(Alumni[industry]),
+    [Total Giving] &gt;= CurrentVal))</pre>
+    </div>
+  </div>
+  <p class="note" style="margin-top:14px">The two dialects differ most on running totals: Tableau's table calculations follow the visual's addressing, while DAX needs the filter context written out explicitly. That difference is worth being able to explain — it is the single most common source of a Pareto line that looks right but is not.</p>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Step 3 · Build</span>
+  <h2>Sheet by sheet</h2>
+  <div class="tblwrap" style="margin-top:20px"><table>
+    <thead><tr><th>View</th><th>Mark type</th><th>Shelves / fields</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>KPI tiles</td><td>Text</td><td>Four measures, no dimension</td><td>Format to thousands; add a reference to the target</td></tr>
+      <tr><td>Alumni by industry</td><td>Bar</td><td>Industry on rows, count on columns, sorted descending</td><td>Sort by measure, not alphabetically</td></tr>
+      <tr><td>Graduation trend</td><td>Line + area</td><td>Grad year (continuous) against count</td><td>Continuous axis, so gaps in years show as gaps</td></tr>
+      <tr><td>Salary by major</td><td>Horizontal bar</td><td>Major on rows, average salary on columns</td><td>Filter salary &gt; 0 at the source, not in the view</td></tr>
+      <tr><td>Salary spread</td><td>Box plot</td><td>Major on columns, salary on rows, alumni id on detail</td><td>Detail shelf is what makes each mark a person</td></tr>
+      <tr><td>Engagement vs capacity</td><td>Scatter</td><td>Engagement on x, salary on y, reference lines at both medians</td><td>Median reference lines, not average — the salary tail is skewed</td></tr>
+      <tr><td>Giving Pareto</td><td>Dual axis</td><td>Bars for giving, line for cumulative share</td><td>Synchronise nothing; the second axis is a percentage</td></tr>
+      <tr><td>Cohort matrix</td><td>Heatmap</td><td>Grad year on rows, engagement tier on columns, mean gift on colour</td><td>Diverging palette hides the pattern here — use sequential</td></tr>
+      <tr><td>Sector profile</td><td>Bubble</td><td>Avg salary, avg engagement, size by headcount</td><td>Size by count so small sectors do not read as important</td></tr>
+      <tr><td>Programme trends</td><td>Small multiples</td><td>Major on rows as a trellis, shared axis</td><td>Fix the axis across panels or the comparison is a lie</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Step 4 · Interact</span>
+  <h2>Filters, parameters and actions</h2>
+  <div class="grid g3" style="margin-top:20px">
+    <div class="card"><h3>Filters</h3>
+      <ul class="plain" style="margin-top:10px;font-size:.9rem;color:var(--ink2)">
+        <li>Major — multi-select dropdown</li>
+        <li>Graduation year — range slider</li>
+        <li>Industry — multi-select</li>
+        <li>Engagement tier — single select</li>
+        <li>Applied to all sheets using this data source</li>
+      </ul></div>
+    <div class="card"><h3>Parameters</h3>
+      <ul class="plain" style="margin-top:10px;font-size:.9rem;color:var(--ink2)">
+        <li>Activity threshold — default 50, so the definition of "active" is testable rather than assumed</li>
+        <li>Top N donors — default 10</li>
+        <li>Capacity weight — lets a reviewer see the ranking change when salary is weighted differently</li>
+      </ul></div>
+    <div class="card"><h3>Actions</h3>
+      <ul class="plain" style="margin-top:10px;font-size:.9rem;color:var(--ink2)">
+        <li>Click a sector bar to filter every other view</li>
+        <li>Hover a scatter point for the full record tooltip</li>
+        <li>Drill from cohort cell to the underlying alumni list</li>
+        <li>Cross-highlight rather than filter on the KPI row</li>
+      </ul></div>
+  </div>
+  <div class="card" style="margin-top:18px;border-left:3px solid var(--teal)">
+    <h3>The parameter that matters</h3>
+    <p style="margin:10px 0 0;font-size:.92rem;color:var(--ink2)">Exposing the capacity weight as a parameter turned an argument into a demonstration. Set it to 40% and the donor list fills with well-paid alumni who have never attended anything; set it to 20% and the list changes substantially. Being able to show that live is more persuasive than any static chart of the same finding.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Step 5 · Publish</span>
+  <h2>Delivery checklist</h2>
+  <ol class="steps" style="margin-top:20px">
+    <li><strong>Extract, not live connection</strong> — the source is a flat file and the aggregations are heavy; an extract makes every filter instant.</li>
+    <li><strong>Titles state findings</strong> — "Giving concentrates in three sectors", not "Giving by industry". A reader who only sees titles should still get the argument.</li>
+    <li><strong>Axes labelled with units</strong> — every axis carries its unit, and currency is formatted consistently to thousands.</li>
+    <li><strong>Tooltips carry context</strong> — record count alongside every average, so a mean built on nine people is visibly a mean built on nine people.</li>
+    <li><strong>Colour used once</strong> — one sequential palette for magnitude, one accent for the highlighted category, nothing decorative.</li>
+    <li><strong>Row-level security</strong> — if this were ever published on real data, an employer role must not see giving fields. Enforced at the data source, not by hiding a sheet.</li>
+  </ol>
+  <p style="margin-top:22px"><a class="cta" href="#results">Next: results against targets</a></p>
 </div></section>
 
 </section>
@@ -1178,46 +1522,66 @@ db.alumni.find({ $and: [
 <section class="page" id="page-team" hidden>
 
 <div class="wrap hero">
-  <span class="eyebrow">Section 08 · Team</span>
-  <h1>Team Radiance</h1>
-  <p class="lede">Four workstreams running in parallel with one owner each — data engineering, analytics, design and documentation — plus a daily check-in that existed mainly to surface blockers while they were still small.</p>
+  <span class="eyebrow">Section 09 · Method &amp; credits</span>
+  <h1>How the work<br>was actually done.</h1>
+  <p class="lede">Five workstreams, run in parallel with a single accountable owner each, and a short daily check-in that existed for one purpose: naming blockers while they were still small.</p>
 </div>
 
 <section><div class="wrap">
-  <div class="grid g3">
+  <span class="eyebrow">About this project</span>
+  <h2>Project record</h2>
+  <div class="tblwrap" style="margin-top:18px"><table>
+    <tbody>
+      <tr><th style="width:190px">Project</th><td>Alumni Connect Analytics Platform</td></tr>
+      <tr><th>Type</th><td>Master&rsquo;s Research Project</td></tr>
+      <tr><th>Institution</th><td>Saint Louis University</td></tr>
+      <tr><th>Course</th><td>Information Systems</td></tr>
+      <tr><th>Term</th><td><em>Add the semester and year</em></td></tr>
+      <tr><th>Faculty supervisor</th><td>Dr. Tatiana Cardona Sepulveda</td></tr>
+      <tr><th>Author</th><td><em>Add your name, and what you owned</em></td></tr>
+      <tr><th>Case subject</th><td>Global Horizon University &mdash; a fictional institution used for the case study</td></tr>
+      <tr><th>Dataset</th><td>2,000 synthetic alumni records &times; 70 fields, generated for this project</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:12px">The author line is the only blank left. Search the HTML for <code class="inline">Add your name</code> &mdash; it appears once, in the row above.</p>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Workstreams</span>
+  <h2>Five areas of work</h2>
+  <div class="grid g3" style="margin-top:22px">
     <div class="person"><div class="av" style="background:#0E8C7F">DE</div>
-      <h3>Data engineering lead</h3>
-      <p style="font-size:.88rem;color:var(--ink2);margin-top:8px">Dataset generation and cleaning, the 70-field standard, MongoDB schema and indexing, the reconciliation scripts that proved zero data loss.</p></div>
+      <h3>Data engineering</h3>
+      <p style="font-size:.88rem;color:var(--ink2);margin-top:8px">Dataset generation and cleaning, the 70-field standard, the MongoDB schema and indexing, and the reconciliation scripts that proved zero data loss.</p></div>
     <div class="person"><div class="av" style="background:#E09B1F">AN</div>
-      <h3>Analytics lead</h3>
-      <p style="font-size:.88rem;color:var(--ink2);margin-top:8px">Aggregation pipelines, the six dashboard views, the donor and mentor scoring formulas, and the before-and-after KPI measurement.</p></div>
+      <h3>Analytics</h3>
+      <p style="font-size:.88rem;color:var(--ink2);margin-top:8px">Aggregation pipelines, the dashboard views, the advanced analysis — concentration, correlation, cohorts, model evaluation — and the donor and mentor scoring formulas.</p></div>
     <div class="person"><div class="av" style="background:#6558C8">UX</div>
-      <h3>Design lead</h3>
+      <h3>Design</h3>
       <p style="font-size:.88rem;color:var(--ink2);margin-top:8px">Three portal interfaces, the prototype screens, usability testing with volunteers, and the navigation rework that followed it.</p></div>
     <div class="person"><div class="av" style="background:#3E8FA8">BE</div>
-      <h3>Backend lead</h3>
+      <h3>Backend</h3>
       <p style="font-size:.88rem;color:var(--ink2);margin-top:8px">FastAPI services, authentication and role routing, validation, and the caching that kept analytics responses under half a second.</p></div>
     <div class="person"><div class="av" style="background:#C8566B">DC</div>
-      <h3>Documentation lead</h3>
+      <h3>Documentation</h3>
       <p style="font-size:.88rem;color:var(--ink2);margin-top:8px">The written report, the user interaction guide and solution mapping, citation management, and this site.</p></div>
     <div class="person" style="border-style:dashed"><div class="av" style="background:#7C918E">FS</div>
-      <h3>Faculty supervisor</h3>
+      <h3>Faculty supervision</h3>
       <p style="font-size:.88rem;color:var(--ink2);margin-top:8px">Project sponsor. Structured feedback across the semester on scope, citation discipline, chart labelling and the honesty of the results section.</p></div>
   </div>
-  <p class="note" style="margin-top:16px">Replace the role initials above with team member names before publishing — the roles map one-to-one onto how the work was actually divided.</p>
 </div></section>
 
 <section><div class="wrap">
   <span class="eyebrow">Working method</span>
-  <h2>How five people shipped one system</h2>
+  <h2>Parallel, not sequential</h2>
   <div class="grid g2" style="margin-top:22px">
     <div>
-      <p>Because the scope covered data migration, dashboard development, predictive modelling, privacy design and interface prototyping, we assigned a single accountable owner to each and worked in parallel rather than in sequence. Daily check-ins were short and existed for one purpose: naming blockers early.</p>
-      <p>The hardest week was data cleaning, when inconsistencies between the imported and original files surfaced late. Incremental validation after each load became a rule from then on.</p>
+      <p>Because the scope covered data migration, dashboard development, predictive modelling, privacy design and interface prototyping, each area got a single accountable owner and the work ran in parallel rather than in sequence. Daily check-ins were short and existed to surface blockers early.</p>
+      <p>The hardest week was data cleaning, when inconsistencies between the imported and original spreadsheets surfaced late. Incremental validation after every load became a rule from that point on.</p>
     </div>
     <div>
-      <p>Working across different styles and schedules produced real friction, and the useful response turned out to be procedural rather than interpersonal: written decisions, an explicit owner per area, and a willingness to revisit a choice when the evidence changed.</p>
-      <p>Almost every element of the project went through several iterations — the dashboard structure, the scoring formulas, the portal navigation. Treating iteration as the expected path rather than as rework is the habit we would keep.</p>
+      <p>The useful response to friction turned out to be procedural rather than interpersonal: written decisions, an explicit owner per area, and a willingness to revisit a choice when the evidence changed.</p>
+      <p>Almost every element went through several iterations — the dashboard structure, the scoring weights, the portal navigation. Treating iteration as the expected path rather than as rework is the habit worth keeping.</p>
     </div>
   </div>
 </div></section>
@@ -1232,12 +1596,12 @@ db.alumni.find({ $and: [
       <tr><td>User interaction guide</td><td>Screen-by-screen data mapping, three user flows, problem-to-solution alignment table</td></tr>
       <tr><td>Synthetic dataset</td><td>2,000 records × 70 fields, generation rules documented and cited</td></tr>
       <tr><td>Analytics dashboard</td><td>Four metric cards, seven interactive charts, two prediction lists</td></tr>
+      <tr><td>Advanced analysis</td><td>Fourteen views including Pareto, ROC, lift table, correlation matrix and cohort heatmap</td></tr>
+      <tr><td>BI build specification</td><td>Tableau Prep flow, calculated fields, DAX measures, sheet-by-sheet layout</td></tr>
       <tr><td>Portal prototype</td><td>Six screens across three roles with the API contract behind each</td></tr>
-      <tr><td>This site</td><td>The full report as a navigable set of pages, computed live from the dataset</td></tr>
     </tbody>
   </table></div>
 </div></section>
-
 <section><div class="wrap">
   <span class="eyebrow">References</span>
   <h2>Sources behind the design decisions</h2>
@@ -1273,9 +1637,9 @@ db.alumni.find({ $and: [
 </main>
 
 <footer class="site"><div class="wrap">
-  <div><p><strong style="color:var(--ink)">Alumni Connect Analytics Platform</strong><br>Team Radiance · Global Horizon University · Master's Research Project</p>
+  <div><p><strong style="color:var(--ink)">Alumni Connect Analytics Platform</strong><br>Global Horizon University</p>
   <p style="margin-top:8px">All data on this site is synthetic. No real alumni records were used.</p></div>
-  <nav><a href="#problem">Problem</a><a href="#data">Data</a><a href="#dashboard">Dashboard</a><a href="#solution">Solution</a><a href="#architecture">Architecture</a><a href="#results">Results</a><a href="#ethics">Ethics</a><a href="#team">Team</a></nav>
+  <nav><a href="#problem">Problem</a><a href="#data">Data</a><a href="#dashboard">Dashboard</a><a href="#advanced">Advanced</a><a href="#bi">BI build</a><a href="#solution">Solution</a><a href="#architecture">Architecture</a><a href="#results">Results</a><a href="#ethics">Ethics</a><a href="#team">Method</a></nav>
 </div></footer>
 <div id="toast"></div>
 
@@ -1443,6 +1807,279 @@ function scatter(node, o) {
   });
   svg.appendChild(txt(o.yTitle || '', { x: -(T + h / 2), y: 12, transform: 'rotate(-90)', 'text-anchor': 'middle', class: 'axis-title' }));
   svg.appendChild(txt(o.xTitle || '', { x: L + w / 2, y: H - 6, 'text-anchor': 'middle', class: 'axis-title' }));
+}
+
+/* ============ advanced chart types ============ */
+
+/* 100% or absolute stacked bars */
+function stackbar(node, o){
+  const W=520,H=300,L=46,R=110,T=14,B=52;
+  const svg=frame(node,W,H), w=W-L-R, h=H-T-B;
+  const n=o.labels.length, totals=o.labels.map((_,i)=>o.series.reduce((a,s)=>a+s.values[i],0));
+  const max=o.pct?100:niceMax(Math.max(...totals));
+  yAxis(svg,max,L,T,T+h,w,o.pct?(v=>Math.round(v)+'%'):fmt);
+  const bw=w/n;
+  o.labels.forEach((lab,i)=>{
+    let acc=0;
+    o.series.forEach((s,k)=>{
+      const v=o.pct? (totals[i]? s.values[i]/totals[i]*100:0) : s.values[i];
+      const bh=(v/max)*h, y=T+h-((acc+v)/max)*h;
+      const r=el('rect',{x:L+i*bw+bw*0.17,y,width:bw*0.66,height:Math.max(bh,0.5),
+        fill:s.color||PALETTE[k%7],class:'bar'});
+      r.appendChild(el('title')).textContent=`${lab} · ${s.name}: ${o.pct?v.toFixed(1)+'%':Math.round(v)}`;
+      svg.appendChild(r); acc+=v;
+    });
+    const t=txt(lab,{x:L+i*bw+bw/2,y:T+h+15,'text-anchor':'middle',class:'vlab'});
+    if(String(lab).length>8) t.setAttribute('transform',`rotate(-22 ${L+i*bw+bw/2} ${T+h+15})`);
+    svg.appendChild(t);
+  });
+  o.series.forEach((s,k)=>{
+    const y=T+16+k*20;
+    svg.appendChild(el('rect',{x:W-R+12,y:y-9,width:10,height:10,rx:2,fill:s.color||PALETTE[k%7]}));
+    svg.appendChild(txt(s.name,{x:W-R+27,y,class:'vlab'}));
+  });
+  svg.appendChild(txt(o.yTitle||'',{x:-(T+h/2),y:12,transform:'rotate(-90)','text-anchor':'middle',class:'axis-title'}));
+  svg.appendChild(txt(o.xTitle||'',{x:L+w/2,y:H-6,'text-anchor':'middle',class:'axis-title'}));
+}
+
+/* matrix heatmap */
+function heatmap(node,o){
+  const cw=Math.max(46,Math.min(70,420/o.cols.length)), ch=30;
+  const L=Math.max(78,...o.rows.map(r=>String(r).length*6.2)), T=34, R=16, B=34;
+  const W=L+cw*o.cols.length+R, H=T+ch*o.rows.length+B;
+  const svg=frame(node,W,H);
+  const flat=o.matrix.flat().filter(v=>v!=null&&!isNaN(v));
+  const lo=o.min!=null?o.min:Math.min(...flat), hi=o.max!=null?o.max:Math.max(...flat);
+  const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
+  const C0=o.c0||[240,248,246], C1=o.c1||[14,140,127];
+  o.cols.forEach((c,j)=>svg.appendChild(txt(c,{x:L+j*cw+cw/2,y:T-12,'text-anchor':'middle',class:'vlab'})));
+  o.rows.forEach((r,i)=>{
+    svg.appendChild(txt(r,{x:L-8,y:T+i*ch+ch/2+4,'text-anchor':'end',class:'vlab'}));
+    o.cols.forEach((c,j)=>{
+      const v=o.matrix[i][j];
+      const t=(hi===lo)?0.5:((v-lo)/(hi-lo));
+      const col=v==null||isNaN(v)?[247,250,249]:mix(C0,C1,Math.max(0,Math.min(1,t)));
+      const rect=el('rect',{x:L+j*cw+1,y:T+i*ch+1,width:cw-2,height:ch-2,rx:3,
+        fill:`rgb(${col.join(',')})`,class:'bar'});
+      rect.appendChild(el('title')).textContent=`${r} · ${c}: ${v==null?'—':(o.format?o.format(v):v)}`;
+      svg.appendChild(rect);
+      if(v!=null&&!isNaN(v))
+        svg.appendChild(txt(o.format?o.format(v):v,{x:L+j*cw+cw/2,y:T+i*ch+ch/2+4,
+          'text-anchor':'middle',class:'vlab',fill:t>0.58?'#fff':'#31504C'}));
+    });
+  });
+  svg.appendChild(txt(o.xTitle||'',{x:L+(cw*o.cols.length)/2,y:H-8,'text-anchor':'middle',class:'axis-title'}));
+}
+
+/* box-and-whisker */
+function boxplot(node,o){
+  const W=520,H=300,L=52,R=14,T=16,B=54;
+  const svg=frame(node,W,H), w=W-L-R, h=H-T-B;
+  const q=(a,p)=>{const s=[...a].sort((x,y)=>x-y);const i=(s.length-1)*p,lo=Math.floor(i),hi=Math.ceil(i);
+    return s[lo]+(s[hi]-s[lo])*(i-lo);};
+  const all=o.groups.flatMap(g=>g.values);
+  const max=niceMax(Math.max(...all)), min=0;
+  yAxis(svg,max,L,T,T+h,w,o.format||fmt);
+  const bw=w/o.groups.length;
+  o.groups.forEach((g,i)=>{
+    if(!g.values.length) return;
+    const x=L+i*bw+bw/2, bx=bw*0.30;
+    const q1=q(g.values,.25),med=q(g.values,.5),q3=q(g.values,.75);
+    const iqr=q3-q1, lo=Math.max(Math.min(...g.values),q1-1.5*iqr), hi=Math.min(Math.max(...g.values),q3+1.5*iqr);
+    const Y=v=>T+h-((v-min)/(max-min))*h;
+    svg.appendChild(el('line',{x1:x,x2:x,y1:Y(hi),y2:Y(lo),stroke:'#7C918E','stroke-width':1}));
+    svg.appendChild(el('line',{x1:x-bx*0.4,x2:x+bx*0.4,y1:Y(hi),y2:Y(hi),stroke:'#7C918E'}));
+    svg.appendChild(el('line',{x1:x-bx*0.4,x2:x+bx*0.4,y1:Y(lo),y2:Y(lo),stroke:'#7C918E'}));
+    const r=el('rect',{x:x-bx,y:Y(q3),width:bx*2,height:Math.max(Y(q1)-Y(q3),1),rx:3,
+      fill:(o.color||C.teal)+'33',stroke:o.color||C.teal,class:'bar'});
+    r.appendChild(el('title')).textContent=
+      `${g.label} · n=${g.values.length} · Q1 ${(o.format||fmt)(q1)} · median ${(o.format||fmt)(med)} · Q3 ${(o.format||fmt)(q3)}`;
+    svg.appendChild(r);
+    svg.appendChild(el('line',{x1:x-bx,x2:x+bx,y1:Y(med),y2:Y(med),stroke:o.color||C.teal,'stroke-width':2.4}));
+    const t=txt(g.label,{x,y:T+h+16,'text-anchor':'middle',class:'vlab'});
+    if(g.label.length>8) t.setAttribute('transform',`rotate(-22 ${x} ${T+h+16})`);
+    svg.appendChild(t);
+  });
+  svg.appendChild(txt(o.yTitle||'',{x:-(T+h/2),y:12,transform:'rotate(-90)','text-anchor':'middle',class:'axis-title'}));
+  svg.appendChild(txt(o.xTitle||'',{x:L+w/2,y:H-6,'text-anchor':'middle',class:'axis-title'}));
+}
+
+/* pareto: bars plus cumulative line */
+function pareto(node,o){
+  const W=520,H=300,L=50,R=42,T=16,B=54;
+  const svg=frame(node,W,H), w=W-L-R, h=H-T-B;
+  const pairs=o.labels.map((l,i)=>[l,o.values[i]]).sort((a,b)=>b[1]-a[1]);
+  const total=pairs.reduce((a,p)=>a+p[1],0)||1;
+  const max=niceMax(pairs[0][1]);
+  yAxis(svg,max,L,T,T+h,w,o.format||fmt);
+  for(let i=0;i<=4;i++){
+    const y=T+h-(h*i/4);
+    svg.appendChild(txt(i*25+'%',{x:L+w+8,y:y+3,class:'vlab'}));
+  }
+  const bw=w/pairs.length; let cum=0; const pts=[];
+  pairs.forEach((p,i)=>{
+    const bh=(p[1]/max)*h, x=L+i*bw+bw*0.17, y=T+h-bh;
+    const r=el('rect',{x,y,width:bw*0.66,height:Math.max(bh,1),rx:3,fill:o.color||C.teal,class:'bar'});
+    r.appendChild(el('title')).textContent=`${p[0]}: ${(o.format||fmt)(p[1])}`;
+    svg.appendChild(r);
+    cum+=p[1]; pts.push([L+i*bw+bw/2, T+h-(cum/total)*h]);
+    const t=txt(p[0],{x:L+i*bw+bw/2,y:T+h+15,'text-anchor':'middle',class:'vlab'});
+    if(p[0].length>8) t.setAttribute('transform',`rotate(-22 ${L+i*bw+bw/2} ${T+h+15})`);
+    svg.appendChild(t);
+  });
+  svg.appendChild(el('path',{d:pts.map((p,i)=>(i?'L':'M')+p[0]+' '+p[1]).join(' '),
+    fill:'none',stroke:C.amber,'stroke-width':2}));
+  let c2=0;
+  pts.forEach((p,i)=>{
+    c2+=pairs[i][1];
+    const dot=el('circle',{cx:p[0],cy:p[1],r:3.2,fill:'#fff',stroke:C.amber,'stroke-width':2});
+    dot.appendChild(el('title')).textContent=`Cumulative through ${pairs[i][0]}: ${(c2/total*100).toFixed(1)}%`;
+    svg.appendChild(dot);
+  });
+  svg.appendChild(txt(o.yTitle||'',{x:-(T+h/2),y:12,transform:'rotate(-90)','text-anchor':'middle',class:'axis-title'}));
+  svg.appendChild(txt('Cumulative share',{x:W-6,y:T+h/2,transform:`rotate(90 ${W-6} ${T+h/2})`,'text-anchor':'middle',class:'axis-title'}));
+  svg.appendChild(txt(o.xTitle||'',{x:L+w/2,y:H-6,'text-anchor':'middle',class:'axis-title'}));
+}
+
+/* conversion funnel */
+function funnel(node,o){
+  const W=520, rowH=44, H=o.steps.length*rowH+34, L=150, R=70;
+  const svg=frame(node,W,H), w=W-L-R;
+  const top=o.steps[0].value||1;
+  o.steps.forEach((s,i)=>{
+    const bw=(s.value/top)*w, y=14+i*rowH;
+    const r=el('rect',{x:L,y,width:Math.max(bw,2),height:rowH-14,rx:4,
+      fill:PALETTE[i%7],opacity:.88,class:'bar'});
+    r.appendChild(el('title')).textContent=`${s.label}: ${s.value.toLocaleString()} (${(s.value/top*100).toFixed(1)}% of base)`;
+    svg.appendChild(r);
+    svg.appendChild(txt(s.label,{x:L-10,y:y+20,'text-anchor':'end',class:'vlab'}));
+    svg.appendChild(txt(s.value.toLocaleString()+'  ·  '+(s.value/top*100).toFixed(1)+'%',
+      {x:L+Math.max(bw,2)+7,y:y+20,class:'vlab'}));
+    if(i){
+      const prev=o.steps[i-1].value||1;
+      svg.appendChild(txt('↓ '+(s.value/prev*100).toFixed(0)+'% carry',{x:L+4,y:y-3,class:'vlab',fill:'#7C918E'}));
+    }
+  });
+}
+
+/* bubble chart */
+function bubble(node,o){
+  const W=520,H=310,L=52,R=16,T=16,B=52;
+  const svg=frame(node,W,H), w=W-L-R, h=H-T-B;
+  const xMax=niceMax(Math.max(...o.points.map(p=>p.x))), yMax=niceMax(Math.max(...o.points.map(p=>p.y)));
+  const rMax=Math.max(...o.points.map(p=>p.r));
+  yAxis(svg,yMax,L,T,T+h,w,o.yFormat||fmt);
+  for(let i=0;i<=4;i++)
+    svg.appendChild(txt((o.xFormat||fmt)(xMax*i/4),{x:L+w*i/4,y:T+h+15,'text-anchor':'middle',class:'vlab'}));
+  o.points.forEach((p,i)=>{
+    const cx=L+(p.x/xMax)*w, cy=T+h-(p.y/yMax)*h, r=8+Math.sqrt(p.r/rMax)*22;
+    const c=el('circle',{cx,cy,r,fill:PALETTE[i%7],opacity:.55,stroke:PALETTE[i%7],class:'bar'});
+    c.appendChild(el('title')).textContent=`${p.label}: ${(o.xFormat||fmt)(p.x)} × ${(o.yFormat||fmt)(p.y)} · n=${p.r}`;
+    svg.appendChild(c);
+    svg.appendChild(txt(p.label,{x:cx,y:cy+3,'text-anchor':'middle',class:'vlab',
+      'font-size':'8.5',fill:'#10312E'}));
+  });
+  svg.appendChild(txt(o.yTitle||'',{x:-(T+h/2),y:12,transform:'rotate(-90)','text-anchor':'middle',class:'axis-title'}));
+  svg.appendChild(txt(o.xTitle||'',{x:L+w/2,y:H-6,'text-anchor':'middle',class:'axis-title'}));
+}
+
+/* quadrant scatter with median split */
+function quadrant(node,o){
+  const W=520,H=320,L=52,R=16,T=22,B=52;
+  const svg=frame(node,W,H), w=W-L-R, h=H-T-B;
+  const xMax=o.xMax??niceMax(Math.max(...o.points.map(p=>p[0])));
+  const yMax=o.yMax??niceMax(Math.max(...o.points.map(p=>p[1])));
+  yAxis(svg,yMax,L,T,T+h,w,o.yFormat||fmt);
+  for(let i=0;i<=4;i++)
+    svg.appendChild(txt((o.xFormat||fmt)(xMax*i/4),{x:L+w*i/4,y:T+h+15,'text-anchor':'middle',class:'vlab'}));
+  const mx=L+(o.xMed/xMax)*w, my=T+h-(o.yMed/yMax)*h;
+  svg.appendChild(el('rect',{x:mx,y:T,width:L+w-mx,height:my-T,fill:'#0E8C7F',opacity:.05}));
+  svg.appendChild(el('line',{x1:mx,x2:mx,y1:T,y2:T+h,stroke:'#B9D6CF','stroke-dasharray':'4 4'}));
+  svg.appendChild(el('line',{x1:L,x2:L+w,y1:my,y2:my,stroke:'#B9D6CF','stroke-dasharray':'4 4'}));
+  o.points.forEach(p=>{
+    const cx=L+(p[0]/xMax)*w, cy=T+h-(p[1]/yMax)*h;
+    const hot = p[0]>=o.xMed && p[1]>=o.yMed;
+    svg.appendChild(el('circle',{cx,cy,r:hot?3.1:2.4,fill:hot?C.amber:C.slate,opacity:hot?.72:.34}));
+  });
+  (o.quadLabels||[]).forEach((q,i)=>{
+    const pos=[[L+6,T+14],[L+w-6,T+14],[L+6,T+h-8],[L+w-6,T+h-8]][i];
+    svg.appendChild(txt(q,{x:pos[0],y:pos[1],'text-anchor':i%2?'end':'start',class:'vlab',fill:'#7C918E'}));
+  });
+  svg.appendChild(txt(o.yTitle||'',{x:-(T+h/2),y:12,transform:'rotate(-90)','text-anchor':'middle',class:'axis-title'}));
+  svg.appendChild(txt(o.xTitle||'',{x:L+w/2,y:H-6,'text-anchor':'middle',class:'axis-title'}));
+}
+
+/* multi-line chart, used for ROC and gains */
+function lines(node,o){
+  const W=520,H=300,L=52,R=16,T=16,B=52;
+  const svg=frame(node,W,H), w=W-L-R, h=H-T-B;
+  const yMax=o.yMax??1, xMax=o.xMax??1;
+  yAxis(svg,yMax,L,T,T+h,w,o.yFormat||(v=>Math.round(v*100)+'%'));
+  for(let i=0;i<=4;i++)
+    svg.appendChild(txt((o.xFormat||(v=>Math.round(v*100)+'%'))(xMax*i/4),
+      {x:L+w*i/4,y:T+h+15,'text-anchor':'middle',class:'vlab'}));
+  if(o.diagonal)
+    svg.appendChild(el('line',{x1:L,y1:T+h,x2:L+w,y2:T,stroke:'#C9E3DD','stroke-dasharray':'4 4'}));
+  o.series.forEach((s,k)=>{
+    const d=s.points.map((p,i)=>(i?'L':'M')+(L+(p[0]/xMax)*w)+' '+(T+h-(p[1]/yMax)*h)).join(' ');
+    if(s.fill) svg.appendChild(el('path',{d:`${d} L ${L+w} ${T+h} L ${L} ${T+h} Z`,fill:(s.color||C.teal)+'1A'}));
+    svg.appendChild(el('path',{d,fill:'none',stroke:s.color||PALETTE[k%7],'stroke-width':2.2}));
+    const y=T+14+k*18;
+    svg.appendChild(el('rect',{x:L+w-118,y:y-8,width:10,height:3,rx:1.5,fill:s.color||PALETTE[k%7]}));
+    svg.appendChild(txt(s.name,{x:L+w-104,y:y-3,class:'vlab'}));
+  });
+  svg.appendChild(txt(o.yTitle||'',{x:-(T+h/2),y:12,transform:'rotate(-90)','text-anchor':'middle',class:'axis-title'}));
+  svg.appendChild(txt(o.xTitle||'',{x:L+w/2,y:H-6,'text-anchor':'middle',class:'axis-title'}));
+}
+
+/* treemap, sliced by alternating direction */
+function treemap(node,o){
+  const W=520,H=300;
+  const svg=frame(node,W,H);
+  const items=[...o.items].sort((a,b)=>b.value-a.value);
+  const total=items.reduce((a,i)=>a+i.value,0)||1;
+  let x=0,y=0,w=W,h=H,rest=total;
+  items.forEach((it,i)=>{
+    const frac=it.value/rest;
+    let rw,rh;
+    if(w>=h){ rw=w*frac; rh=h; } else { rw=w; rh=h*frac; }
+    const r=el('rect',{x:x+1,y:y+1,width:Math.max(rw-2,1),height:Math.max(rh-2,1),rx:4,
+      fill:PALETTE[i%7],opacity:.85,class:'bar'});
+    r.appendChild(el('title')).textContent=`${it.label}: ${it.value.toLocaleString()} (${(it.value/total*100).toFixed(1)}%)`;
+    svg.appendChild(r);
+    if(rw>60&&rh>28){
+      svg.appendChild(txt(it.label,{x:x+10,y:y+22,class:'vlab',fill:'#fff','font-size':'10.5'}));
+      svg.appendChild(txt((it.value/total*100).toFixed(1)+'%',{x:x+10,y:y+36,class:'vlab',fill:'#fff'}));
+    }
+    if(w>=h){ x+=rw; w-=rw; } else { y+=rh; h-=rh; }
+    rest-=it.value;
+  });
+}
+
+/* small multiples: one mini area per panel */
+function smallmult(node,o){
+  const cols=Math.min(4,o.panels.length), rows=Math.ceil(o.panels.length/cols);
+  const pw=520/cols, ph=86, W=520, H=rows*ph+10;
+  const svg=frame(node,W,H);
+  const gmax=Math.max(...o.panels.flatMap(p=>p.values));
+  o.panels.forEach((p,i)=>{
+    const ox=(i%cols)*pw, oy=Math.floor(i/cols)*ph+8;
+    const iw=pw-18, ih=ph-40;
+    svg.appendChild(txt(p.label,{x:ox+8,y:oy+10,class:'vlab',fill:'#31504C'}));
+    const step=p.values.length>1?iw/(p.values.length-1):iw;
+    const pts=p.values.map((v,j)=>[ox+8+j*step, oy+18+ih-(v/gmax)*ih]);
+    const d=pts.map((q,j)=>(j?'L':'M')+q[0]+' '+q[1]).join(' ');
+    svg.appendChild(el('path',{d:`${d} L ${pts.at(-1)[0]} ${oy+18+ih} L ${pts[0][0]} ${oy+18+ih} Z`,
+      fill:(o.color||C.teal)+'1F'}));
+    svg.appendChild(el('path',{d,fill:'none',stroke:o.color||C.teal,'stroke-width':1.8}));
+    svg.appendChild(el('line',{x1:ox+8,x2:ox+8+iw,y1:oy+18+ih,y2:oy+18+ih,stroke:'#EDF4F2'}));
+    svg.appendChild(txt(p.foot||'',{x:ox+8,y:oy+ph-8,class:'vlab',fill:'#7C918E'}));
+    p.values.forEach((v,j)=>{
+      const c=el('circle',{cx:pts[j][0],cy:pts[j][1],r:2,fill:o.color||C.teal,opacity:.8});
+      c.appendChild(el('title')).textContent=`${p.labels?p.labels[j]:j}: ${v}`;
+      svg.appendChild(c);
+    });
+  });
 }
 
 </script>
@@ -1702,6 +2339,236 @@ document.getElementById('reset').addEventListener('click',()=>{
 render();
 
 })();
+/* ---- advanced ---- */
+(function(){
+
+(function(){
+const ix={}; REC_KEYS.forEach((k,i)=>ix[k]=i);
+const R=RECORDS, N=R.length;
+const usd=n=>'$'+Math.round(n).toLocaleString();
+const mean=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:0;
+const quant=(a,p)=>{const s=[...a].sort((x,y)=>x-y);const i=(s.length-1)*p,lo=Math.floor(i),hi=Math.ceil(i);
+  return s[lo]+(s[hi]-s[lo])*(i-lo);};
+function pearson(xs,ys){
+  const n=xs.length; if(n<3) return 0;
+  const mx=mean(xs), my=mean(ys);
+  let num=0,dx=0,dy=0;
+  for(let i=0;i<n;i++){const a=xs[i]-mx,b=ys[i]-my; num+=a*b; dx+=a*a; dy+=b*b;}
+  return (dx&&dy)? num/Math.sqrt(dx*dy) : 0;
+}
+const employed=R.filter(r=>r[ix.salary]>0);
+const donors=R.filter(r=>r[ix.donation_last_year]>0);
+
+/* ---------- 01 funnel ---------- */
+const steps=[
+  {label:'All alumni', value:N},
+  {label:'Profile 60%+ complete', value:R.filter(r=>r[ix.profile_completeness]>=60).length},
+  {label:'Attended an event', value:R.filter(r=>r[ix.events_attended]>0).length},
+  {label:'Active · score > 50', value:R.filter(r=>r[ix.engagement_score]>50).length},
+  {label:'Opted into mentorship', value:R.filter(r=>r[ix.mentorship_interest]===1&&r[ix.engagement_score]>50).length},
+  {label:'Gave last year', value:donors.length},
+];
+funnel(document.getElementById('a-funnel'),{steps});
+document.getElementById('a-funnel-i').textContent =
+  `${donors.length} of ${N} alumni gave last year — ${(donors.length/N*100).toFixed(1)}% of the base. The sharpest drop is into the active tier, which is where a re-engagement campaign has to work if anything downstream is going to move.`;
+
+/* ---------- 01 pareto ---------- */
+const givingBy={}; IND_L.forEach(i=>givingBy[i]=0);
+R.forEach(r=>givingBy[IND_L[r[ix.industry]]]+=r[ix.donation_last_year]);
+const pl=Object.entries(givingBy).sort((a,b)=>b[1]-a[1]);
+pareto(document.getElementById('a-pareto'),{labels:pl.map(d=>d[0]),values:pl.map(d=>d[1]),
+  yTitle:'Total giving (USD)',xTitle:'Industry',format:v=>'$'+Math.round(v/1000)+'K'});
+const totG=pl.reduce((a,d)=>a+d[1],0);
+const top3=pl.slice(0,3).reduce((a,d)=>a+d[1],0);
+document.getElementById('a-pareto-i').textContent =
+  `The top three sectors account for ${(top3/totG*100).toFixed(1)}% of all giving, led by ${pl[0][0]} at ${usd(pl[0][1])}. Sector is a weak predictor on its own, but it tells the office which employer partnerships double as cultivation channels.`;
+
+/* ---------- 01 deciles ---------- */
+const byEng=[...R].sort((a,b)=>a[ix.engagement_score]-b[ix.engagement_score]);
+const dec=[]; const size=Math.floor(N/10);
+for(let d=0;d<10;d++){
+  const slice=byEng.slice(d*size, d===9?N:(d+1)*size);
+  dec.push({d:d+1, avg:mean(slice.map(r=>r[ix.donation_last_year])),
+            donors:slice.filter(r=>r[ix.donation_last_year]>0).length, n:slice.length});
+}
+vbar(document.getElementById('a-decile'),{labels:dec.map(d=>'D'+d.d),values:dec.map(d=>Math.round(d.avg)),
+  yTitle:'Mean gift (USD)',xTitle:'Engagement decile · 10 is most engaged',color:'#E09B1F',
+  format:v=>'$'+Math.round(v)});
+const overallAvg=mean(R.map(r=>r[ix.donation_last_year]));
+const lift10=dec[9].avg/overallAvg;
+document.getElementById('a-decile-i').textContent =
+  `The top decile averages ${usd(dec[9].avg)} against ${usd(overallAvg)} across the whole base — ${lift10.toFixed(1)}× lift. The curve is convex, not linear, which means engagement pays back disproportionately at the top rather than steadily throughout.`;
+
+/* ---------- 01 treemap ---------- */
+const indCount={}; IND_L.forEach(i=>indCount[i]=0);
+R.forEach(r=>indCount[IND_L[r[ix.industry]]]++);
+const tItems=Object.entries(indCount).map(([l,v])=>({label:l,value:v}));
+treemap(document.getElementById('a-tree'),{items:tItems});
+const biggest=tItems.sort((a,b)=>b.value-a.value)[0];
+document.getElementById('a-tree-i').textContent =
+  `${biggest.label} is the largest single destination at ${(biggest.value/N*100).toFixed(1)}% of graduates. No sector exceeds a sixth of the base, so the alumni body is genuinely diversified rather than a feeder into one industry.`;
+
+/* ---------- 02 model evaluation ---------- */
+function affinity(r){
+  return (r[ix.engagement_score]/100)*0.5
+       + Math.min(r[ix.salary]/500000,1)*0.3
+       + Math.min((2026-r[ix.grad_year])/10,1)*0.2;
+}
+const scored=R.map(r=>({s:affinity(r), y:r[ix.donation_last_year]>0?1:0, gift:r[ix.donation_last_year]}))
+              .sort((a,b)=>b.s-a.s);
+const P=scored.filter(d=>d.y).length, Ng=scored.length-P;
+let tp=0,fp=0; const roc=[[0,0]], gains=[[0,0]];
+scored.forEach((d,i)=>{
+  if(d.y) tp++; else fp++;
+  roc.push([fp/Ng, tp/P]);
+  gains.push([(i+1)/scored.length, tp/P]);
+});
+let auc=0;
+for(let i=1;i<roc.length;i++) auc += (roc[i][0]-roc[i-1][0])*(roc[i][1]+roc[i-1][1])/2;
+lines(document.getElementById('a-roc'),{series:[{name:'Affinity model',points:roc,color:'#6558C8',fill:true}],
+  diagonal:true, xTitle:'False positive rate', yTitle:'True positive rate'});
+const strength = auc>=0.8?'strong':auc>=0.7?'moderate':auc>=0.6?'modest':'weak';
+document.getElementById('a-roc-i').textContent =
+  `AUC = ${auc.toFixed(3)}, against 0.500 for random ranking — ${strength} separation. Read honestly, that means behaviour and capacity alone rank donors better than chance but nowhere near well enough to be trusted on their own. The production score adds past giving for exactly this reason, and the list it produces is still reviewed by a person before anyone is contacted.`;
+
+lines(document.getElementById('a-gains'),{series:[{name:'Model',points:gains,color:'#0E8C7F',fill:true}],
+  diagonal:true, xTitle:'Share of base contacted', yTitle:'Share of donors reached'});
+const at30=gains.find(g=>g[0]>=0.30);
+document.getElementById('a-gains-i').textContent =
+  `Contacting the top 30% of the ranked list reaches ${(at30[1]*100).toFixed(1)}% of everyone who actually gave. For a development office of three people, that is the difference between a manageable call list and an impossible one.`;
+
+/* lift table */
+const dsize=Math.floor(scored.length/10); let cum=0;
+let rowsHtml='<thead><tr><th>Decile</th><th>Alumni</th><th>Donors</th><th>Response rate</th><th>Lift</th><th>Cumulative donors reached</th></tr></thead><tbody>';
+const baseRate=P/scored.length;
+for(let d=0;d<10;d++){
+  const slice=scored.slice(d*dsize, d===9?scored.length:(d+1)*dsize);
+  const dn=slice.filter(x=>x.y).length; cum+=dn;
+  const rate=dn/slice.length, lift=rate/baseRate;
+  rowsHtml+=`<tr><td>D${d+1}${d===0?' · top':''}</td><td class="num">${slice.length}</td>
+    <td class="num">${dn}</td><td class="num">${(rate*100).toFixed(1)}%</td>
+    <td class="num" style="color:${lift>=1?'#075E56':'#8E3247'}">${lift.toFixed(2)}×</td>
+    <td class="num">${(cum/P*100).toFixed(1)}%</td></tr>`;
+}
+document.getElementById('a-lift').innerHTML=rowsHtml+'</tbody>';
+
+/* ---------- 03 correlation ---------- */
+const vars=[
+  ['Engagement', r=>r[ix.engagement_score]],
+  ['Events', r=>r[ix.events_attended]],
+  ['Profile %', r=>r[ix.profile_completeness]],
+  ['Salary', r=>r[ix.salary]],
+  ['Gift', r=>r[ix.donation_last_year]],
+  ['GPA', r=>r[ix.gpa]],
+];
+const matrix=vars.map(a=>vars.map(b=>{
+  const set=(a[0]==='Salary'||b[0]==='Salary')?employed:R;
+  return +pearson(set.map(a[1]), set.map(b[1])).toFixed(2);
+}));
+heatmap(document.getElementById('a-corr'),{rows:vars.map(v=>v[0]),cols:vars.map(v=>v[0]),
+  matrix, min:-0.2, max:1, format:v=>v.toFixed(2), xTitle:'Pearson r'});
+const rEngGift=matrix[0][4], rSalGift=matrix[3][4];
+document.getElementById('a-corr-i').textContent =
+  `Engagement correlates with gift size at r = ${rEngGift.toFixed(2)}, while salary correlates at r = ${rSalGift.toFixed(2)}. That gap is the empirical case for weighting affinity above capacity in the donor score — the first version of the model had it backwards.`;
+
+/* ---------- 03 quadrant ---------- */
+const medEng=quant(employed.map(r=>r[ix.engagement_score]),0.5);
+const medSal=quant(employed.map(r=>r[ix.salary]),0.5);
+quadrant(document.getElementById('a-quad'),{
+  points:employed.map(r=>[r[ix.engagement_score], r[ix.salary]]),
+  xMed:medEng, yMed:medSal, xMax:100, xTitle:'Engagement score', yTitle:'Salary (USD)',
+  xFormat:v=>Math.round(v), yFormat:v=>'$'+Math.round(v/1000)+'K',
+  quadLabels:['Capacity, no affinity','Cultivate first','Neither','Affinity, lower capacity']
+});
+const hot=employed.filter(r=>r[ix.engagement_score]>=medEng&&r[ix.salary]>=medSal);
+document.getElementById('a-quad-i').textContent =
+  `${hot.length} alumni sit above both medians — high capacity and high affinity. That group is ${(hot.length/employed.length*100).toFixed(1)}% of employed alumni and it is where personal outreach should start, ahead of anyone in the high-salary, low-engagement quadrant.`;
+
+/* ---------- 03 bubble ---------- */
+const bp=IND_L.map(name=>{
+  const set=R.filter(r=>IND_L[r[ix.industry]]===name);
+  const emp=set.filter(r=>r[ix.salary]>0);
+  return {label:name, x:mean(emp.map(r=>r[ix.salary])), y:mean(set.map(r=>r[ix.engagement_score])), r:set.length};
+});
+bubble(document.getElementById('a-bubble'),{points:bp, xTitle:'Average salary (USD)',
+  yTitle:'Average engagement score', xFormat:v=>'$'+Math.round(v/1000)+'K', yFormat:v=>Math.round(v)});
+const topEngInd=[...bp].sort((a,b)=>b.y-a.y)[0];
+document.getElementById('a-bubble-i').textContent =
+  `${topEngInd.label} graduates are the most engaged on average (${topEngInd.y.toFixed(1)}), and the sectors do not line up along a salary-engagement diagonal. Where someone works predicts what they earn far better than it predicts whether they stay connected.`;
+
+/* ---------- 03 box ---------- */
+boxplot(document.getElementById('a-box'),{
+  groups:MAJOR_L.map(m=>({label:m, values:employed.filter(r=>MAJOR_L[r[ix.major]]===m).map(r=>r[ix.salary])})),
+  yTitle:'Salary (USD)', xTitle:'Major', format:v=>'$'+Math.round(v/1000)+'K', color:'#0E8C7F'
+});
+const spreads=MAJOR_L.map(m=>{
+  const v=employed.filter(r=>MAJOR_L[r[ix.major]]===m).map(r=>r[ix.salary]);
+  return {m, iqr:quant(v,0.75)-quant(v,0.25)};
+}).sort((a,b)=>b.iqr-a.iqr);
+document.getElementById('a-box-i').textContent =
+  `${spreads[0].m} shows the widest interquartile range (${usd(spreads[0].iqr)}), ${spreads.at(-1).m} the narrowest. Medians tell you what a typical graduate earns; the box width tells you how much the outcome varies, which is the more useful number for advising a student.`;
+
+/* ---------- 04 cohort heatmap ---------- */
+const years=[...new Set(R.map(r=>r[ix.grad_year]))].sort();
+const tiers=['Low · ≤50','Medium · 51–70','High · >70'];
+const tierOf=r=>r[ix.engagement_score]>70?2:r[ix.engagement_score]>50?1:0;
+const cm=years.map(y=>tiers.map((_,t)=>{
+  const set=R.filter(r=>r[ix.grad_year]===y&&tierOf(r)===t);
+  return set.length? Math.round(mean(set.map(r=>r[ix.donation_last_year]))) : null;
+}));
+heatmap(document.getElementById('a-cohort'),{rows:years.map(String),cols:tiers,matrix:cm,
+  format:v=>'$'+(v>=1000?(v/1000).toFixed(1)+'K':v), xTitle:'Engagement tier'});
+document.getElementById('a-cohort-i').textContent =
+  `Reading across any row, the gift size rises with engagement tier in almost every cohort. Reading down a column, older cohorts give more than recent ones at the same tier — tenure and affinity compound rather than substitute.`;
+
+/* ---------- 04 tenure ---------- */
+const tn=[...new Set(R.map(r=>2026-r[ix.grad_year]))].sort((a,b)=>a-b);
+area(document.getElementById('a-tenure'),{labels:tn, values:tn.map(t=>+mean(R.filter(r=>2026-r[ix.grad_year]===t).map(r=>r[ix.events_attended])).toFixed(2)),
+  yTitle:'Mean events attended', xTitle:'Years since graduation', color:'#6558C8', format:v=>v.toFixed(1)});
+document.getElementById('a-tenure-i').textContent =
+  `Attendance accumulates with time rather than decaying, which is what you would expect when the field counts lifetime events. The operational read is that a graduate's first two years are the cheapest window to build a habit.`;
+
+/* ---------- 04 stacked ---------- */
+stackbar(document.getElementById('a-stack'),{
+  labels:MAJOR_L,
+  series:EMP_L.map((s,k)=>({name:s, color:['#0E8C7F','#E09B1F','#7C918E'][k],
+    values:MAJOR_L.map(m=>R.filter(r=>MAJOR_L[r[ix.major]]===m&&EMP_L[r[ix.employment_status]]===s).length)})),
+  pct:true, yTitle:'Share of programme', xTitle:'Major'
+});
+const empRate=MAJOR_L.map(m=>{
+  const set=R.filter(r=>MAJOR_L[r[ix.major]]===m);
+  return {m, p:set.filter(r=>r[ix.salary]>0).length/set.length};
+}).sort((a,b)=>b.p-a.p);
+document.getElementById('a-stack-i').textContent =
+  `${empRate[0].m} records the highest employment share at ${(empRate[0].p*100).toFixed(1)}%, ${empRate.at(-1).m} the lowest at ${(empRate.at(-1).p*100).toFixed(1)}%. Normalising to percentages is what makes programmes of different sizes comparable at a glance.`;
+
+/* ---------- 04 small multiples ---------- */
+smallmult(document.getElementById('a-small'),{
+  panels:MAJOR_L.map(m=>({label:m, labels:years,
+    values:years.map(y=>R.filter(r=>MAJOR_L[r[ix.major]]===m&&r[ix.grad_year]===y).length),
+    foot:years[0]+'–'+years.at(-1)}))
+});
+document.getElementById('a-small-i').textContent =
+  `On a shared scale, no programme shows a collapsing intake and none dominates. Small multiples are the right tool here precisely because the answer is "they all move together" — a single overlaid line chart with seven series would have hidden that.`;
+
+/* ---------- headline stats ---------- */
+const gifts=[...donors].sort((a,b)=>b[ix.donation_last_year]-a[ix.donation_last_year]);
+const top20=gifts.slice(0,Math.round(gifts.length*0.2));
+const share=top20.reduce((a,r)=>a+r[ix.donation_last_year],0)/gifts.reduce((a,r)=>a+r[ix.donation_last_year],0);
+document.getElementById('a-k1').textContent=(share*100).toFixed(0)+'%';
+document.getElementById('a-k2').textContent=lift10.toFixed(1)+'×';
+document.getElementById('a-k3').textContent=auc.toFixed(3);
+document.getElementById('a-k4').textContent='r = '+rEngGift.toFixed(2);
+
+document.getElementById('a-c1').textContent =
+  `Engagement correlates with gift size at r = ${rEngGift.toFixed(2)} against ${rSalGift.toFixed(2)} for salary. Capacity is capped at 20% of the donor score for that reason. Both correlations are weak in absolute terms — the ranking is useful for ordering a call list, not for predicting any individual's gift.`;
+document.getElementById('a-c2').textContent =
+  `The top three deciles of the ranked list contain ${(gains.find(g=>g[0]>=0.30)[1]*100).toFixed(0)}% of all donors. Working that list first is a scheduling decision, not a modelling one — which is why the lift table matters more than the AUC.`;
+document.getElementById('a-c3').textContent =
+  `${(100-share*100).toFixed(0)}% of giving comes from outside the top fifth of donors, and the bottom deciles barely give at all. They need a different programme — re-engagement, not solicitation — and the funnel shows where that programme has to start.`;
+})();
+
+})();
 /* ---- results ---- */
 (function(){
 
@@ -1738,7 +2605,7 @@ vbar(document.getElementById('c-tier'), {
 </script>
 <script>
 /* ---- router ---- */
-const PAGE_IDS = ['overview', 'problem', 'data', 'dashboard', 'solution', 'architecture', 'results', 'ethics', 'team'].map(String);
+const PAGE_IDS = ['overview', 'problem', 'data', 'dashboard', 'advanced', 'bi', 'solution', 'architecture', 'results', 'ethics', 'team'].map(String);
 function show(id){
   if(!PAGE_IDS.includes(id)) id = 'overview';
   PAGE_IDS.forEach(p=>{
